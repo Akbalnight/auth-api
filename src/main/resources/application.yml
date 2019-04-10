@@ -1,0 +1,3 @@
+oauth2:
+   check_token:
+      url: http://at-d-am03.appliedtech.ru:9010/checkAccess
