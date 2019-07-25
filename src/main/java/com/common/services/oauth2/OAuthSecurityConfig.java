@@ -31,7 +31,7 @@ public class OAuthSecurityConfig  extends ResourceServerConfigurerAdapter// impl
     public  void configure(HttpSecurity http) throws Exception
     {
         http.authorizeRequests()
-            .anyRequest().permitAll();
+            .anyRequest().authenticated();
     }
 
     @Primary
