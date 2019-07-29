@@ -103,7 +103,7 @@ public class OAuthApiRemoteTokenServices implements ResourceServerTokenServices
         {
             // Запишем метод и путь исходного запроса в json запроса
             map.put("method", httpRequest.getMethod());
-            map.put("path", httpRequest.getServletPath());            
+            map.put("path", httpRequest.getRequestURI());
         }
         if (accessToken != null)
         {
