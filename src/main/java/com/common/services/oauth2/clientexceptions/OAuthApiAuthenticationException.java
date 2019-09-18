@@ -7,7 +7,7 @@ import org.springframework.security.oauth2.common.exceptions.ClientAuthenticatio
  * OAuthApiAuthenticationException.java
  * Date: 9 апр. 2019 г.
  * Users: vmeshkov
- * Description: TODO
+ * Description: Класс для исключений, преобразование в http ответ
  */
 @SuppressWarnings("serial")
 public class OAuthApiAuthenticationException
