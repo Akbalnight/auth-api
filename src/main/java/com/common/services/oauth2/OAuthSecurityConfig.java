@@ -1,5 +1,7 @@
 package com.common.services.oauth2;
 
+import com.common.services.oauth2.setup.OAuthApiRemoteTokenServices;
+import com.common.services.oauth2.filter.UserDetailsFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,8 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
-
-import com.common.services.oauth2.setup.OAuthApiRemoteTokenServices;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 /**
  * OAuthSecurityConfig.java
@@ -34,6 +35,7 @@ public class OAuthSecurityConfig  extends ResourceServerConfigurerAdapter
             .antMatchers("/**/springfox-swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs/**")
             .permitAll()
             .anyRequest().authenticated();
+        http.addFilterAfter(new UserDetailsFilter(), BasicAuthenticationFilter.class);
     }
 
     @Primary
