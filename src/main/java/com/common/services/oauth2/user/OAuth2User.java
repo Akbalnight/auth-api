@@ -10,6 +10,7 @@ import java.util.List;
  * Данные пользователя формируются при проверке токена доступа (access_token) на сервере авторизации.
  * @author AsMatveev
  */
+@SuppressWarnings("serial")
 public class OAuth2User
         extends UsernamePasswordAuthenticationToken
         implements User
