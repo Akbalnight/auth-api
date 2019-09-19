@@ -28,7 +28,10 @@ public class UserDetailsFilter
         try
         {
             User user = UserDetails.getUser();
-            requestWrapper.putHeader(USER_ID, user.getId().toString());
+            if (user.getId() != null)
+            {
+                requestWrapper.putHeader(USER_ID, user.getId().toString());
+            }
             requestWrapper.putHeader(USER_NAME, user.getName());
             requestWrapper.putHeader(USER_ROLES, user.getRoles().toString());
         }
