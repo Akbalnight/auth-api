@@ -53,6 +53,7 @@ public class OAuthApiRemoteTokenServices
         restTemplate = new RestTemplate();
         tokenConverter.setUserTokenConverter(new UserAuthenticationConverter()
         {
+            @SuppressWarnings("unchecked")
             @Override
             public Authentication extractAuthentication(Map<String, ?> map)
             {
