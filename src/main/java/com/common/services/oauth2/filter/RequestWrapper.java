@@ -46,7 +46,6 @@ public class RequestWrapper
     {
         Set<String> set = new HashSet<>(headers.keySet());
 
-        @SuppressWarnings("unchecked")
         Enumeration<String> e = ((HttpServletRequest) getRequest()).getHeaderNames();
         while (e.hasMoreElements())
         {
