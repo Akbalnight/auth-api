@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -33,6 +34,8 @@ public class OAuthSecurityConfig  extends ResourceServerConfigurerAdapter
     {
         http.authorizeRequests()
             .antMatchers("/**/springfox-swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs/**")
+            .permitAll()
+            .antMatchers(HttpMethod.GET, "/version")
             .permitAll()
             .anyRequest().authenticated();
         http.addFilterAfter(new UserDetailsFilter(), BasicAuthenticationFilter.class);
