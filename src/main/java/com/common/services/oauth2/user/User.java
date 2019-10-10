@@ -14,8 +14,7 @@ public interface User
     String getName();
 
     /**
-     * Возвращает id пользователя.
-     * Для LDAP пользователей id = null
+     * Возвращает id пользователя
      */
     Integer getId();
 
