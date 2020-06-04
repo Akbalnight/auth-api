@@ -35,7 +35,7 @@ public class OAuthSecurityConfig  extends ResourceServerConfigurerAdapter
         http.authorizeRequests()
             .antMatchers("/**/springfox-swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs/**")
             .permitAll()
-            .antMatchers(HttpMethod.GET, "/version")
+            .antMatchers(HttpMethod.GET, "/version", "/actuator/info")
             .permitAll()
             .anyRequest().authenticated();
         http.addFilterAfter(new UserDetailsFilter(), BasicAuthenticationFilter.class);
